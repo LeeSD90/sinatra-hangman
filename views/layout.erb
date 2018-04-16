@@ -12,8 +12,18 @@
 </style>
 </head>
 <body>
-	
-<div>  <%= yield 	 	%> 	 	</div>
+
+<div>  
+	<h2>Welcome to Hangman.</h2><h3>A random English word has been chosen from a dictionary. You have eight incorrect guesses before you fail!</h3>
+	<%= yield 	 	%>
+	<form action='/guess' method='POST'>
+	  <input type='text' name='guess'/>
+	  <input type='submit' value='Guess!'/></br>
+	</form>
+	<form style="margin-top:20px;" action='/reset' method='POST'>
+	  <input type='submit' value='New Game'/></br>
+	</form>
+</div>
 
 </body>
 </html>

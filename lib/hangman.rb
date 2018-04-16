@@ -1,13 +1,40 @@
 class Hangman
+	attr_accessor :word, :guesses, :chosen_letters
 
 	def initialize
+		@word = get_random_word()
+		@guesses = 8
+		@chosen_letters = Array.new
+	end
 
+	def check_guess(guess)
+		count = 0
+		score = ""
+		@chosen_letters << guess.downcase
+		@word.chomp.split(//).each { |l|
+			next if l == ""
+			if @chosen_letters.include?(l.downcase) then count += 1; score = score + l + " "
+			else puts "yo" + l; score += "_ "
+			end
+		}
+		if @word.chomp.split("").length == count then return "You won! The word was " + @word end
+		puts score
+		puts @word
+		return score
+	end
+
+	def game_over?
+		return false
+	end
+
+	def check_input(input)
+		return input == "1" || (is_letter(input) && !@chosen_letters.include?(input))
 	end
 
 	private
 
 	def get_random_word()
-		dictionary = File.readlines("5desk.txt")
+		dictionary = File.readlines("./lib/5desk.txt")
 		word = ""
 
 		until(word.length > 5 && word.length < 12)
@@ -16,19 +43,9 @@ class Hangman
 		end
 		return word
 	end
-
-	def check_input(input)
-		return input == "1" || (is_letter(input) && !@chosen_letters.include?(input))
-	end
-
+	
 	def is_letter(l)
 		return l =~ /^[a-zA-Z]{1}$/
-	end
-
-	def instructions()
-		puts "\n"
-	    puts "|***** Hangman! *****|".colorize(:green)
-	    puts "\nA random English word has been chosen from a dictionary. You have eight incorrect guesses before you fail!\n\n"
 	end
 
 end
