@@ -23,18 +23,22 @@ post '/guess' do
     guess = params[:guess]
     message = ""
     guesses = ""
-    score = "" unless !score.nil?
+    drawing = ""
+    #if score.nil? then score = "" end
 
     if @game.check_input(guess)
       score = @game.check_guess(guess)
       score = "<strong>#{score}</strong>"
       guesses = @game.guesses
+      drawing = @game.draw
+      puts drawing
     else
       message = "Input invalid!"
     end
     erb :guess, :locals => {:message => message,
                             :guesses => guesses,
-                            :score => score
+                            :score => score,
+                            :drawing => drawing
                             }
   end
 end

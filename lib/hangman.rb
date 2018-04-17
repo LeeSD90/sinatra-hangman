@@ -14,11 +14,10 @@ class Hangman
 		@word.chomp.split(//).each { |l|
 			next if l == ""
 			if @chosen_letters.include?(l.downcase) then count += 1; score = score + l + " "
-			else puts "yo" + l; score += "_ "
+			else score += "_ "
 			end
 		}
 		if @word.chomp.split("").length == count then return "You won! The word was " + @word end
-		puts score
 		puts @word
 		return score
 	end
@@ -29,6 +28,115 @@ class Hangman
 
 	def check_input(input)
 		return input == "1" || (is_letter(input) && !@chosen_letters.include?(input))
+	end
+
+	def draw()
+		case @guesses
+		when 1
+				return %q{
+	   ____
+	  |    |
+	  |    
+	  |   
+	  |    
+	  |   
+	 _|_
+	|   |______
+	|          |
+	|__________|
+	}
+		when 2
+			return %q{
+	   ____
+	  |    |
+	  |    o
+	  |   
+	  |    
+	  |   
+	 _|_
+	|   |______
+	|          |
+	|__________|
+	}
+		when 3
+			return %q{
+	   ____
+	  |    |
+	  |    o
+	  |    |
+	  |    
+	  |   
+	 _|_
+	|   |______
+	|          |
+	|__________|
+	}
+		when 4
+			return %q{
+	   ____
+	  |    |
+	  |    o
+	  |    |
+	  |    |
+	  |   
+	 _|_
+	|   |______
+	|          |
+	|__________|
+	}
+		when 5
+			return %q{
+	   ____
+	  |    |
+	  |    o
+	  |   /|
+	  |    |
+	  |   
+	 _|_
+	|   |______
+	|          |
+	|__________|
+	}
+		when 6
+			return %q{
+	   ____
+	  |    |
+	  |    o
+	  |   /|\
+	  |    |
+	  |   
+	 _|_
+	|   |______
+	|          |
+	|__________|
+	}
+		when 7
+			return %q{
+	   ____
+	  |    |
+	  |    o
+	  |   /|\
+	  |    |
+	  |   /
+	 _|_
+	|   |______
+	|          |
+	|__________|
+	}
+		when 8
+	return %q{
+	   ____
+	  |    |
+	  |    o
+	  |   /|\
+	  |    |
+	  |   / \
+	 _|_
+	|   |______
+	|          |
+	|__________|
+	}
+		end
 	end
 
 	private
