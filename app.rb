@@ -24,13 +24,11 @@ post '/guess' do
     message = ""
     guesses = 0
     drawing = ""
-    #if score.nil? then score = "" end
-
+    
     if @game.check_input(guess)
       score = @game.check_guess(guess)
       score = "<strong>#{score}</strong>"
       guesses = @game.guesses
-      puts drawing
     else
       message = "Input invalid!"
     end

@@ -20,7 +20,6 @@ class Hangman
 		@guesses -= 1 unless @word.include?(guess)
 		if @word.chomp.split("").length == count then return "You won! The word was " + @word; @guesses = 0 end
 		if @guesses == 0 then return "You lost! The word was " + @word end
-		puts @word
 		return score
 	end
 
