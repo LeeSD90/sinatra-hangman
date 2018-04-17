@@ -30,11 +30,11 @@ post '/guess' do
       score = @game.check_guess(guess)
       score = "<strong>#{score}</strong>"
       guesses = @game.guesses
-      drawing = @game.draw
       puts drawing
     else
       message = "Input invalid!"
     end
+    drawing = @game.draw
     erb :guess, :locals => {:message => message,
                             :guesses => guesses,
                             :score => score,

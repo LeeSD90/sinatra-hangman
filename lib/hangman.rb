@@ -34,7 +34,7 @@ class Hangman
 
 	def draw()
 		case @guesses
-		when 1
+		when 8
 				return %q{
 	   ____
 	  |    |
@@ -47,7 +47,7 @@ class Hangman
 	|          |
 	|__________|
 	}
-		when 2
+		when 7
 			return %q{
 	   ____
 	  |    |
@@ -60,26 +60,13 @@ class Hangman
 	|          |
 	|__________|
 	}
-		when 3
+		when 6
 			return %q{
 	   ____
 	  |    |
 	  |    o
 	  |    |
 	  |    
-	  |   
-	 _|_
-	|   |______
-	|          |
-	|__________|
-	}
-		when 4
-			return %q{
-	   ____
-	  |    |
-	  |    o
-	  |    |
-	  |    |
 	  |   
 	 _|_
 	|   |______
@@ -87,6 +74,19 @@ class Hangman
 	|__________|
 	}
 		when 5
+			return %q{
+	   ____
+	  |    |
+	  |    o
+	  |    |
+	  |    |
+	  |   
+	 _|_
+	|   |______
+	|          |
+	|__________|
+	}
+		when 4
 			return %q{
 	   ____
 	  |    |
@@ -99,7 +99,7 @@ class Hangman
 	|          |
 	|__________|
 	}
-		when 6
+		when 3
 			return %q{
 	   ____
 	  |    |
@@ -112,7 +112,7 @@ class Hangman
 	|          |
 	|__________|
 	}
-		when 7
+		when 2
 			return %q{
 	   ____
 	  |    |
@@ -125,7 +125,7 @@ class Hangman
 	|          |
 	|__________|
 	}
-		when 8
+		when 1
 	return %q{
 	   ____
 	  |    |
