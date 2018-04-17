@@ -17,15 +17,15 @@ class Hangman
 			else score += "_ "
 			end
 		}
-		@guesses -= 1
-		if @word.chomp.split("").length == count then return "You won! The word was " + @word end
+		@guesses -= 1 unless @word.include?(guess)
+		if @word.chomp.split("").length == count then return "You won! The word was " + @word; @guesses = 0 end
 		if @guesses == 0 then return "You lost! The word was " + @word end
 		puts @word
 		return score
 	end
 
 	def game_over?
-		return false
+		return @guesses == 0
 	end
 
 	def check_input(input)

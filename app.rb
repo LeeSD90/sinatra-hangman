@@ -22,7 +22,7 @@ post '/guess' do
   else
     guess = params[:guess]
     message = ""
-    guesses = ""
+    guesses = 0
     drawing = ""
     #if score.nil? then score = "" end
 
